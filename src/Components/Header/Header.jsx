@@ -30,7 +30,7 @@ const Header = () => {
                     <li><a className="text-lg text-[#150B2BB2]">Search</a></li>     
                   </ul>
               </div>
-              <a className="text-4xl cursor-pointer text-[#150B2B] font-bold">Flevor <span className="text-[#0BE58A]">Restaurent</span></a>
+              <a className="text-2xl lg:text-4xl cursor-pointer text-[#150B2B] font-bold">Flevor <span className="text-[#0BE58A]">Restaurent</span></a>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
@@ -42,7 +42,7 @@ const Header = () => {
             </div>
             <div className="navbar-end">
             <div className="form-control mr-4">
-                <input type="text" placeholder="Search" className="input input-bordered rounded-full w-24 md:w-auto" />
+                <input type="text" placeholder="Search" className="input input-bordered rounded-full w-full md:w-auto" />
               </div>
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
