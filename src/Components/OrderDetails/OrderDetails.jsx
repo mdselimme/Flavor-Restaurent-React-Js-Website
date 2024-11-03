@@ -1,7 +1,7 @@
 
 
 
-const OrderDetails = ({data , time, calories, handleCurrentlyCooking,cookingData}) => {
+const OrderDetails = ({data , time, handleCookDone, calories, handleCurrentlyCooking,cookingData}) => {
 
     
     return (
@@ -67,10 +67,14 @@ const OrderDetails = ({data , time, calories, handleCurrentlyCooking,cookingData
                                 <td>
                                     {data.calories} Cal
                                 </td>
+                                <td>
+                            <button onClick={()=> handleCookDone(data)} className="px-5 py-2 bg-[#0BE58A] rounded-full text-[#150B2B] text-base font-medium">Done</button>
+                            </td>
                             </tr>
                         )
                     }
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td className="text-center">Total Time <br /> <span className="text-[#0BE58A]">{time}</span> Min</td>

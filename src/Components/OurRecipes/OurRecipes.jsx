@@ -27,7 +27,7 @@ const OurRecipes = () => {
         duration: 2000
     }) ;
 
-    const notifyCookedToaster = () => toast.success("Item Add For Cooking", {
+    const notifyCookedToaster = (message) => toast.success(message, {
         duration: 2000
     }) ;
 
@@ -40,7 +40,17 @@ const OurRecipes = () => {
         setTime(totalPrepereTime);
         const totalCalories = calories + data.calories;
         setCalories(totalCalories);
-        notifyCookedToaster();
+        notifyCookedToaster("Item Add For Cooking");
+    };
+
+    const handleCookDone = (data) => {
+        const currCookRemove = currentCooking.filter((ele)=> ele.recipe_id !== data.recipe_id);
+        setCurrentCooking(currCookRemove);
+        const totalPrepereTime = time - data.preparing_time;
+        setTime(totalPrepereTime);
+        const totalCalories = calories - data.calories;
+        setCalories(totalCalories);
+        notifyCookedToaster("Cooking Done");
     };
 
 
@@ -53,7 +63,7 @@ const OurRecipes = () => {
             </div>
             <div className="grid grid-cols-5 place-items-start justify-between">
                 <Recipes handleWantToCook={handleWantToCook} />
-                <OrderDetails handleCurrentlyCooking={handleCurrentlyCooking} calories={calories} time={time} data={wantCook} cookingData={currentCooking} />
+                <OrderDetails handleCurrentlyCooking={handleCurrentlyCooking} handleCookDone={handleCookDone} calories={calories} time={time} data={wantCook} cookingData={currentCooking} />
             </div>
         </div>
     );
