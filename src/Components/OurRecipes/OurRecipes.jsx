@@ -9,6 +9,8 @@ const OurRecipes = () => {
 
     const [wantCook, setWantCook] = useState([]);
     const [currentCooking, setCurrentCooking] = useState([]);
+    const [time, setTime] = useState(0);
+    const [calories, setCalories] = useState(0);
 
     const handleWantToCook = (recipe) =>{
         const findData = wantCook.find((data)=> data.recipe_id === recipe.recipe_id);
@@ -34,6 +36,10 @@ const OurRecipes = () => {
         setCurrentCooking(newCurrentCooking);
         const wantCookRemove = wantCook.filter((ele)=> ele.recipe_id !== data.recipe_id);
         setWantCook(wantCookRemove);
+        const totalPrepereTime = time + data.preparing_time;
+        setTime(totalPrepereTime);
+        const totalCalories = calories + data.calories;
+        setCalories(totalCalories);
         notifyCookedToaster();
     };
 
@@ -47,7 +53,7 @@ const OurRecipes = () => {
             </div>
             <div className="grid grid-cols-5 place-items-start justify-between">
                 <Recipes handleWantToCook={handleWantToCook} />
-                <OrderDetails handleCurrentlyCooking={handleCurrentlyCooking} data={wantCook} cookingData={currentCooking} />
+                <OrderDetails handleCurrentlyCooking={handleCurrentlyCooking} calories={calories} time={time} data={wantCook} cookingData={currentCooking} />
             </div>
         </div>
     );
