@@ -1,7 +1,7 @@
 import { FaClock, FaFire } from "react-icons/fa";
 
 
-const Recipe = ({recipe}) => {
+const Recipe = ({recipe, handleWantToCook}) => {
 
     const {recipe_image, recipe_name,short_description,ingredients , preparing_time, calories} = recipe;
 
@@ -20,7 +20,7 @@ const Recipe = ({recipe}) => {
                         <strong className="text-lg block font-medium mb-3">Ingredients: <span className="text-[#0BE58A]">{ingredients.length}</span></strong>
                         <ul className="list-disc ml-8 text-lg text-[#878787] leading-[2rem]">
                             {
-                                ingredients.map((items)=> <li>{items}</li>)
+                                ingredients.map((items ,idx)=> <li key={idx}>{items}</li>)
                             }
                         </ul>
                     </div>
@@ -33,7 +33,7 @@ const Recipe = ({recipe}) => {
                         </div>
                     </div>
                     <div className="card-actions justify-end">
-                    <button className="w-full py-4 mt-5 bg-[#0BE58A] rounded-full text-[#150B2B] text-lg font-medium">Want to Cook</button>
+                    <button onClick={()=> handleWantToCook(recipe)} className="w-full py-4 mt-5 bg-[#0BE58A] rounded-full text-[#150B2B] text-lg font-medium">Want to Cook</button>
                     </div>
                 </div>
                 </div>
