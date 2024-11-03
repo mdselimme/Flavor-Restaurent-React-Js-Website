@@ -16,6 +16,8 @@ const OurRecipes = () => {
     const handleCurrentlyCooking = (data) => {
         const newCurrentCooking = [...currentCooking, data];
         setCurrentCooking(newCurrentCooking);
+        const wantCookRemove = wantCook.filter((ele)=> ele.recipe_id !== data.recipe_id);
+        setWantCook(wantCookRemove);
     };
 
 

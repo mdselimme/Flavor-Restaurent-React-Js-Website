@@ -9,7 +9,7 @@ const OrderDetails = ({data , handleCurrentlyCooking,cookingData}) => {
             <div className="p-5 col-span-2">
             <div className="border rounded-2xl p-4">
             <h1 className="text-center text-2xl text-[#282828] font-medium">Want to Cook: <span className="text-[#0BE58A]">{data.length}</span></h1>
-            <div className="mt-5">
+            {data.length ===0 ? <h1 className="text-center mt-5 text-xl text-[#0BE58A] font-medium">No items Order</h1> : <div className="mt-5">
                 <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
@@ -42,9 +42,11 @@ const OrderDetails = ({data , handleCurrentlyCooking,cookingData}) => {
                     </tbody>
                 </table>
                 </div>
-            </div>
-            <h1 className="text-center text-2xl text-[#282828] font-medium mt-10">Currently Cooking <span className="text-[#0BE58A]">{data.length}</span></h1>
-            <div className="mt-5">
+            </div>}
+            
+            <h1 className="text-center text-2xl text-[#282828] font-medium mt-10">Currently Cooking <span className="text-[#0BE58A]">{cookingData.length}</span></h1>
+            {
+                cookingData.length === 0 ? <h1 className="text-center mt-5 text-xl text-[#0BE58A] font-medium">No items Cooking</h1> : <div className="mt-5">
                 <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
@@ -54,7 +56,6 @@ const OrderDetails = ({data , handleCurrentlyCooking,cookingData}) => {
                         <th>Name</th>
                         <th>Time (Minutes)</th>
                         <th>Calories</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,9 +68,6 @@ const OrderDetails = ({data , handleCurrentlyCooking,cookingData}) => {
                         <td>
                             {data.calories} Cal
                         </td>
-                        <td>
-                        <button onClick={()=> handleCurrentlyCooking(data)} className="px-5 py-2 bg-[#0BE58A] rounded-full text-[#150B2B] text-base font-medium">Preparing</button>
-                        </td>
                     </tr>
                         )
                     }
@@ -78,6 +76,8 @@ const OrderDetails = ({data , handleCurrentlyCooking,cookingData}) => {
                 </table>
                 </div>
             </div>
+            }
+            
             </div>
         </div>
     );
