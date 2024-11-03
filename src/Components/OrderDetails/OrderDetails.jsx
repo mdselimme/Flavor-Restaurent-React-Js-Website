@@ -1,12 +1,8 @@
 
 
 const OrderDetails = ({data , handleCurrentlyCooking,cookingData}) => {
-
-   
-    
-    console.log(data)
     return (
-            <div className="p-5 col-span-2">
+            <div className="p-5 col-span-2 w-full">
             <div className="border rounded-2xl p-4">
             <h1 className="text-center text-2xl text-[#282828] font-medium">Want to Cook: <span className="text-[#0BE58A]">{data.length}</span></h1>
             {data.length ===0 ? <h1 className="text-center mt-5 text-xl text-[#0BE58A] font-medium">No items Order</h1> : <div className="mt-5">

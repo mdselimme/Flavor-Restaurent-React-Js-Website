@@ -24,7 +24,7 @@ const Recipe = ({recipe, handleWantToCook}) => {
                             }
                         </ul>
                     </div>
-                    <div className="flex my-2 items-center">
+                    <div className="flex my-2 justify-between items-center">
                         <div className="flex items-center text-[#282828CC] text-base font-normal">
                             <span className="text-[#0BE58A]"><FaClock /></span> <span className="ml-2">{preparing_time} Minutes</span>
                         </div>
