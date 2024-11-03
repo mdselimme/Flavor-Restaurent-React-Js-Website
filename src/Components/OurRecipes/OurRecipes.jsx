@@ -6,10 +6,16 @@ import Recipes from "../Recipes/Recipes";
 const OurRecipes = () => {
 
     const [wantCook, setWantCook] = useState([]);
+    const [currentCooking, setCurrentCooking] = useState([]);
 
     const handleWantToCook = (recipe) =>{
         const newWantCook = [...wantCook, recipe];
         setWantCook(newWantCook);
+    };
+
+    const handleCurrentlyCooking = (data) => {
+        const newCurrentCooking = [...currentCooking, data];
+        setCurrentCooking(newCurrentCooking);
     };
 
 
@@ -21,7 +27,7 @@ const OurRecipes = () => {
             </div>
             <div className="grid grid-cols-5 justify-between">
                 <Recipes handleWantToCook={handleWantToCook} />
-                <OrderDetails data={wantCook} />
+                <OrderDetails handleCurrentlyCooking={handleCurrentlyCooking} data={wantCook} cookingData={currentCooking} />
             </div>
         </div>
     );
